@@ -1,0 +1,21 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    links:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"    
+
+  web:
+    build: .
+    ports:
+      - "2300:2300"
+    depends_on:
+      - redis
+    links:
+      - redis
+
+  redis:
+    image: redis
