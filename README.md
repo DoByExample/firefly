@@ -32,7 +32,7 @@ and sign in with the development credentials: `admin` / `admin`.
 Firefly 2 is fully tested using Minitest. Running tests should 
 alwasy be easy and straightforward:
 
-    docker-compose run web 'HANAMI_ENV=test hanami db prepare && rake test'
+    docker-compose run --rm -e HANAMI_ENV=test web bash -c 'hanami db prepare; rake test'
 
 # Contributors
 
